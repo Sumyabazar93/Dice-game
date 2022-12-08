@@ -158,6 +158,10 @@ i {
     top: 467px;
 }
 
+.winner-name {
+    top: 40px;
+}
+
 .dice {
     position: absolute;
     left: 50%;
