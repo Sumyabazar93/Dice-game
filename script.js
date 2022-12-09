@@ -50,17 +50,12 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 document.querySelector(".btn-hold").addEventListener("click", function () {
     scores[activePlayer] = scores[activePlayer] + roundScore;
 
-    document.getElementById("score-" + activePlayer).textContent =
-        scores[activePlayer];
+    document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
 
     if (scores[activePlayer] >= 10) {
         document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
-        document
-            .querySelector(".player-" + activePlayer + "-panel")
-            .classList.add("winner");
-        document
-            .querySelector(".player-" + activePlayer + "-panel")
-            .classList.remove("active");
+        document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
+        document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
     } else {
         switchToNextPlayer();
     }
