@@ -29,7 +29,10 @@ function initGame() {
     diceDom.style.display = "none";
 }
 document.querySelector(".btn-roll").addEventListener("click", function () {
-    if (isGameOver === true) return;
+    if (isGameOver) {
+        alert("Game Over, click 'New Game' ");
+        return;
+    }
     var diceNumber = Math.floor(Math.random() * 6 + 1);
 
     diceDom.style.display = "block";
@@ -55,7 +58,10 @@ function swtichToNextPlayer() {
 }
 
 document.querySelector(".btn-hold").addEventListener("click", function () {
-    if (isGameOver === true) return;
+    if (isGameOver) {
+        alert("Game Over, click 'New Game' ");
+        return;
+    }
     scores[activePlayer] += roundScore;
     document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
 
