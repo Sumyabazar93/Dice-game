@@ -1,5 +1,5 @@
 var scores, activePlayer, roundScore;
-
+var isGameOver;
 var diceDom = document.querySelector(".dice");
 diceDom.style.display = "none";
 
@@ -9,6 +9,7 @@ function changeValId(ner, index, value) {
     document.getElementById(ner + index).textContent = value;
 }
 function initGame() {
+    isGameOver = false;
     scores = [0, 0];
     activePlayer = 0;
     roundScore = 0;
@@ -28,6 +29,7 @@ function initGame() {
     diceDom.style.display = "none";
 }
 document.querySelector(".btn-roll").addEventListener("click", function () {
+    if (isGameOver === true) return;
     var diceNumber = Math.floor(Math.random() * 6 + 1);
 
     diceDom.style.display = "block";
@@ -53,10 +55,12 @@ function swtichToNextPlayer() {
 }
 
 document.querySelector(".btn-hold").addEventListener("click", function () {
+    if (isGameOver === true) return;
     scores[activePlayer] += roundScore;
     document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
 
     if (scores[activePlayer] >= 10) {
+        isGameOver = true;
         document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
         document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
         document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
