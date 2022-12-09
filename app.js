@@ -4,23 +4,24 @@
 // document.getElementById("current-0").textContent = '0';
 // document.getElementById("current-1").textContent = '0';
 
-var activePlayer = 1;
+var activePlayer = 0;
 var scores = [0, 0];
 var roundScore = 0;
 
 var diceDom = document.querySelector(".dice");
 diceDom.style.display = "none";
 document.getElementById('winner-name').textContent = "";
+
 document.querySelector(".btn-roll").addEventListener("click", function () {
     var diceNumber = Math.floor(Math.random() * 6) + 1;
     if (diceNumber === 1) {
         alert("Unlucky ^_^ ");
         roundScore = 0;
-        document.getElementById('score-' + activePlayer).textContent = roundScore;
+        document.getElementById('current-' + activePlayer).textContent = roundScore;
         activePlayer = (activePlayer + 1) % 2;
     } else {
         roundScore += diceNumber;
-        document.getElementById('score-' + activePlayer).textContent = roundScore;
+        document.getElementById('current-' + activePlayer).textContent = roundScore;
         diceDom.style.display = "block";
         diceDom.src = 'dice-' + diceNumber + '.png';
     }
@@ -34,7 +35,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
         diceDom.src = 'winner.png';
     }
     roundScore = 0;
-    document.getElementById('current-' + activePlayer).textContent = scores[activePlayer];
+    document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
     activePlayer = (activePlayer + 1) % 2;
 });
 
