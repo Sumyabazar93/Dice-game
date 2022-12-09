@@ -2,6 +2,7 @@ var scores, activePlayer, roundScore;
 var isGameOver;
 var diceDom = document.querySelector(".dice");
 diceDom.style.display = "none";
+var limit = 100;
 
 initGame();
 
@@ -65,7 +66,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
     scores[activePlayer] += roundScore;
     document.getElementById("score-" + activePlayer).textContent = scores[activePlayer];
 
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= limit) {
         isGameOver = true;
         document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
         document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
