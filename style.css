@@ -150,6 +150,12 @@ i {
     top: 45px;
 }
 
+.btn-info {
+    position: absolute;
+    left: 851px;
+    top: 543px;
+}
+
 .btn-roll {
     top: 403px;
 }

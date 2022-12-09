@@ -6,6 +6,9 @@ var limit = 100;
 
 initGame();
 
+document.querySelector(".btn-info").addEventListener("click", function () {
+    alert("*Шоог 2р тоглогч шидэж тоглох ба түрүүлж 100 оноонд хүрсэн тоглогч ялагч болно.\n*Шоо 1 буух үед тоглогч цуглуулсан оноо гоо алдах ба эсрэг тоглогч шоог хаяж эхэлнэ\n*2-6 үед та оноог цуглуулсаар байх ба эсүүл 'HOLD' товчийг дарж цуглуулсан оноогоо баттай хадгалж дараагийн тоглогчдоо шоог шилжүүлнэ\n*Тоглоомыг ахин эхлүүлэх бол 'Start game' товчыг дарна");
+});
 function changeValId(ner, index, value) {
     document.getElementById(ner + index).textContent = value;
 }
