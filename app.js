@@ -5,13 +5,6 @@ diceDom.style.display = "none";
 var limit = 100;
 
 initGame();
-
-document.querySelector(".btn-info").addEventListener("click", function () {
-    alert("*Шоог 2р тоглогч шидэж тоглох ба түрүүлж 100 оноонд хүрсэн тоглогч ялагч болно.\n*Шоо 1 буух үед тоглогч цуглуулсан оноо гоо алдах ба эсрэг тоглогч шоог хаяж эхэлнэ\n*2-6 үед та оноог цуглуулсаар байх ба эсүүл 'HOLD' товчийг дарж цуглуулсан оноогоо баттай хадгалж дараагийн тоглогчдоо шоог шилжүүлнэ\n*Тоглоомыг ахин эхлүүлэх бол 'Start game' товчыг дарна");
-});
-function changeValId(ner, index, value) {
-    document.getElementById(ner + index).textContent = value;
-}
 function initGame() {
     isGameOver = false;
     scores = [0, 0];
@@ -19,17 +12,14 @@ function initGame() {
     roundScore = 0;
 
     for (var i = 0; i < 2; i++) {
-        changeValId("score-", i, 0);
-        changeValId("current-", i, 0);
-        changeValId("name-", i, "Player" + (i + 1));
+        alert(i);
+        document.getElementById("current-" + i).textContent = 0;
+        document.getElementById("score-" + i).textContent = 0;
+        document.getElementById("name-" + i).textContent = "Player " + (i + 1);
+        document.querySelector(".player-" + i + "-panel").classList.remove("active");
+        document.querySelector(".player-" + i + "-panel").classList.remove("winner");
+        document.querySelector(".player-" + i + "-panel").classList.remove("winner");
     }
-    document.querySelector(".player-0-panel").classList.remove("active");
-    document.querySelector(".player-1-panel").classList.remove("active");
-    document.querySelector(".player-0-panel").classList.remove("winner");
-    document.querySelector(".player-1-panel").classList.remove("winner");
-
-    document.querySelector(".player-0-panel").classList.add("active");
-
     diceDom.style.display = "none";
 }
 document.querySelector(".btn-roll").addEventListener("click", function () {
@@ -80,3 +70,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
 });
 
 document.querySelector(".btn-new").addEventListener("click", initGame);
+
+document.querySelector(".btn-info").addEventListener("click", function () {
+    alert("*Шоог 2р тоглогч шидэж тоглох ба түрүүлж 100 оноонд хүрсэн тоглогч ялагч болно.\n*Шоо 1 буух үед тоглогч цуглуулсан оноо гоо алдах ба эсрэг тоглогч шоог хаяж эхэлнэ\n*2-6 үед та оноог цуглуулсаар байх ба эсүүл 'HOLD' товчийг дарж цуглуулсан оноогоо баттай хадгалж дараагийн тоглогчдоо шоог шилжүүлнэ\n*Тоглоомыг ахин эхлүүлэх бол 'Start game' товчыг дарна");
+});
