@@ -1,7 +1,11 @@
 var scores, activePlayer, roundScore;
 var isGameOver;
-var diceDom = document.querySelector(".dice");
-diceDom.style.display = "none";
+var diceDom1 = document.querySelector(".dice1");
+var diceDom2 = document.querySelector(".dice2");
+
+diceDom1.style.display = "none";
+diceDom2.style.display = "none";
+
 var limit = 100;
 
 initGame();
@@ -12,7 +16,6 @@ function initGame() {
     roundScore = 0;
 
     for (var i = 0; i < 2; i++) {
-        alert(i);
         document.getElementById("current-" + i).textContent = 0;
         document.getElementById("score-" + i).textContent = 0;
         document.getElementById("name-" + i).textContent = "Player " + (i + 1);
@@ -20,19 +23,27 @@ function initGame() {
         document.querySelector(".player-" + i + "-panel").classList.remove("winner");
         document.querySelector(".player-" + i + "-panel").classList.remove("winner");
     }
-    diceDom.style.display = "none";
+    diceDom1.style.display = "none";
+    diceDom2.style.display = "none";
 }
+
 document.querySelector(".btn-roll").addEventListener("click", function () {
     if (isGameOver) {
         alert("Game Over, click 'New Game' ");
         return;
     }
-    var diceNumber = Math.floor(Math.random() * 6 + 1);
+    var diceNumber1 = Math.floor(Math.random() * 6 + 1);
 
-    diceDom.style.display = "block";
-    diceDom.src = "dice-" + diceNumber + ".png";
-    if (diceNumber !== 1) {
-        roundScore += diceNumber;
+    diceDom1.style.display = "block";
+    diceDom1.src = "dice-" + diceNumber1 + ".png";
+
+    var diceNumber2 = Math.floor(Math.random() * 6 + 1);
+
+    diceDom2.style.display = "block";
+    diceDom2.src = "dice-" + diceNumber2 + ".png";
+
+    if (diceNumber1 !== 1 && diceNumber2 !== 1) {
+        roundScore += diceNumber1 + diceNumber2;
         document.getElementById("current-" + activePlayer).textContent = roundScore;
     } else {
         swtichToNextPlayer();
@@ -45,10 +56,12 @@ function swtichToNextPlayer() {
 
     activePlayer = (activePlayer + 1) % 2;
 
-    diceDom.style.display = "none";
+    diceDom1.style.display = "none";
+    diceDom2.style.display = "none";
     document.querySelector(".player-0-panel").classList.toggle("active");
     document.querySelector(".player-1-panel").classList.toggle("active");
-    diceDom.style.display = "none";
+    diceDom1.style.display = "none";
+    diceDom2.style.display = "none";
 }
 
 document.querySelector(".btn-hold").addEventListener("click", function () {
