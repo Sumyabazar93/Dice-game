@@ -25,6 +25,7 @@ function initGame() {
     }
     diceDom1.style.display = "none";
     diceDom2.style.display = "none";
+    document.querySelector(".player-0-panel").classList.add("active");
 }
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
@@ -60,8 +61,6 @@ function swtichToNextPlayer() {
     diceDom2.style.display = "none";
     document.querySelector(".player-0-panel").classList.toggle("active");
     document.querySelector(".player-1-panel").classList.toggle("active");
-    diceDom1.style.display = "none";
-    diceDom2.style.display = "none";
 }
 
 document.querySelector(".btn-hold").addEventListener("click", function () {
