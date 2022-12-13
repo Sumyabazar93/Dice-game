@@ -15,14 +15,16 @@ function initGame() {
     activePlayer = 0;
     roundScore = 0;
 
+
     for (var i = 0; i < 2; i++) {
         document.getElementById("current-" + i).textContent = 0;
         document.getElementById("score-" + i).textContent = 0;
-        document.getElementById("name-" + i).textContent = "Player " + (i + 1);
         document.querySelector(".player-" + i + "-panel").classList.remove("active");
         document.querySelector(".player-" + i + "-panel").classList.remove("winner");
         document.querySelector(".player-" + i + "-panel").classList.remove("winner");
     }
+    document.getElementById("name-0").textContent = "Sumyabazar";
+    document.getElementById("name-1").textContent = "Bumdelgerekh ";
     diceDom1.style.display = "none";
     diceDom2.style.display = "none";
     document.querySelector(".player-0-panel").classList.add("active");
